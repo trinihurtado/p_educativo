@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Puerperio Saludable — Clínica U. de los Andes</title>
+  <title>Puerperio Saludable</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -462,6 +462,12 @@
       font-size: 2.5rem;
     }
 
+    img.member-photo {
+      display: block;
+      object-fit: cover;
+      object-position: center 28%;
+    }
+
     .member-card:nth-child(1) .member-photo { background: var(--peach); }
     .member-card:nth-child(2) .member-photo { background: var(--sage); }
     .member-card:nth-child(3) .member-photo { background: #f5ddd0; }
@@ -634,14 +640,11 @@
   <nav>
     <a class="nav-logo" href="#">
       <span class="nav-logo-main">Puerperio <em>Saludable</em></span>
-      <span class="nav-logo-sub">Clínica U. de los Andes</span>
     </a>
     <ul class="nav-links">
       <li><a href="#modulos">Módulos</a></li>
       <li><a href="#equipo">Equipo</a></li>
-      <li><a href="#acceso">Acceso QR</a></li>
     </ul>
-    <a class="nav-badge" href="#acceso">Escanear QR</a>
   </nav>
 
   <!-- ── HERO ── -->
@@ -772,14 +775,14 @@
         </div>
 
         <div class="member-card">
-          <div class="member-photo">🌿</div>
+          <img class="member-photo" src="assets/aboutus/martina.jpeg" alt="Martina Barrientos" loading="lazy"/>
           <p class="member-role">Obstetricia y Puericultura</p>
           <h3 class="member-name">Martina Barrientos</h3>
           <p class="member-bio">Apasionada por la lactancia materna y el acompañamiento integral de la mujer en el postparto.</p>
         </div>
 
         <div class="member-card">
-          <div class="member-photo">✨</div>
+          <img class="member-photo" src="assets/aboutus/trini.jpeg" alt="Trinidad Hurtado" loading="lazy"/>
           <p class="member-role">Obstetricia y Puericultura</p>
           <h3 class="member-name">Trinidad Hurtado</h3>
           <p class="member-bio">Comprometida con la salud digital y el acceso a información confiable para las familias.</p>
@@ -789,46 +792,12 @@
     </div>
   </section>
 
-  <!-- ── QR BANNER ── -->
-  <section class="qr-banner" id="acceso">
-    <div class="qr-text">
-      <p class="qr-eyebrow">Acceso rápido</p>
-      <h2 class="qr-title">Lleva esta guía<br/><em>contigo a casa</em></h2>
-      <p class="qr-desc">
-        Escanea el código QR desde tu teléfono para acceder a todos los módulos en cualquier momento, sin necesidad de recordar contraseñas ni instalar aplicaciones.
-      </p>
-    </div>
-
-    <div class="qr-box">
-      <div class="qr-placeholder">
-        <!-- Simple QR visual placeholder -->
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <rect x="10" y="10" width="30" height="30" rx="3" stroke="#79A6A3" stroke-width="4"/>
-          <rect x="17" y="17" width="16" height="16" rx="1" fill="#79A6A3"/>
-          <rect x="60" y="10" width="30" height="30" rx="3" stroke="#79A6A3" stroke-width="4"/>
-          <rect x="67" y="17" width="16" height="16" rx="1" fill="#79A6A3"/>
-          <rect x="10" y="60" width="30" height="30" rx="3" stroke="#79A6A3" stroke-width="4"/>
-          <rect x="17" y="67" width="16" height="16" rx="1" fill="#79A6A3"/>
-          <rect x="60" y="60" width="8" height="8" fill="#79A6A3"/>
-          <rect x="72" y="60" width="8" height="8" fill="#79A6A3"/>
-          <rect x="60" y="72" width="8" height="8" fill="#79A6A3"/>
-          <rect x="72" y="72" width="8" height="8" fill="#79A6A3"/>
-          <rect x="45" y="10" width="8" height="8" fill="#E7926C"/>
-          <rect x="45" y="22" width="8" height="8" fill="#E7926C"/>
-          <rect x="45" y="45" width="8" height="8" fill="#E7926C"/>
-          <rect x="10" y="45" width="8" height="8" fill="#E7926C"/>
-          <rect x="22" y="45" width="8" height="8" fill="#E7926C"/>
-        </svg>
-      </div>
-      <p class="qr-caption">Código QR de acceso<br/>Puerperio Saludable</p>
-    </div>
-  </section>
 
   <!-- ── FOOTER ── -->
   <footer>
     <div class="footer-left">
       <span class="footer-logo">Puerperio <em>Saludable</em></span>
-      <span class="footer-inst">Clínica Universidad de los Andes · 2026</span>
+      <span class="footer-inst">2026</span>
     </div>
     <div class="footer-right">
       Proyecto Educativo — Clínica Obstétrica<br/>
