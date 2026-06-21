@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lactancia Materna | Puerperio Saludable</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --cream:      #F9E5D7;
+      --peach:      #EEC1A4;
+      --teal:       #79A6A3;
+      --mustard:    #E5B36A;
+      --sage:       #C7D7CA;
+      --terracotta: #E7926C;
+      --ink:        #3d3530;
+      --muted:      #8c7b74;
+      --white:      #ffffff;
+
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'Jost', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 3.5rem;
+      background: rgba(249,229,215,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(238,193,164,0.4);
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      text-decoration: none;
+    }
+
+    .nav-logo-main {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: 0.03em;
+    }
+
+    .nav-logo-main em { color: var(--terracotta); font-style: italic; }
+
+    .nav-logo-sub {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--teal); }
+
+    .nav-badge {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      background: var(--teal);
+      padding: 0.45rem 1.1rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 3.5rem 5rem;
+      gap: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: var(--sage);
+      filter: blur(80px);
+      opacity: 0.4;
+      top: -100px; right: -80px;
+      pointer-events: none;
+    }
+
+    .hero-text { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px; height: 1px;
+      background: var(--teal);
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 4.5vw, 5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--terracotta);
+      display: block;
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 420px;
+      margin-bottom: 2.4rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--terracotta);
+      padding: 0.85rem 2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--teal); transform: translateY(-2px); }
+
+    .btn-outline {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      border: 1px solid rgba(61,53,48,0.3);
+      padding: 0.85rem 2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+
+    /* Hero visual side */
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hero-stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1.4rem 1.2rem;
+      box-shadow: 0 4px 20px rgba(61,53,48,0.06);
+    }
+
+    .stat-card.accent-teal   { background: var(--teal); }
+    .stat-card.accent-terra  { background: var(--terracotta); }
+    .stat-card.accent-sage   { background: var(--sage); }
+
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-card.accent-teal .stat-num,
+    .stat-card.accent-terra .stat-num { color: var(--white); }
+    .stat-card.accent-sage .stat-num  { color: var(--ink); }
+    .stat-card:not([class*=accent]) .stat-num { color: var(--terracotta); }
+
+    .stat-label {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+
+    .stat-card.accent-teal .stat-label,
+    .stat-card.accent-terra .stat-label { color: rgba(255,255,255,0.8); }
+    .stat-card.accent-sage .stat-label  { color: var(--ink); opacity: 0.7; }
+    .stat-card:not([class*=accent]) .stat-label { color: var(--muted); }
+
+    /* ── SECTION COMMON ── */
+    .section-wrap {
+      padding: 6rem 3.5rem;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .section-header { margin-bottom: 3.5rem; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.7rem;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 22px; height: 1px;
+      background: var(--teal);
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .section-title em { font-style: italic; color: var(--terracotta); }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 520px;
+      margin-top: 0.8rem;
+    }
+
+    /* ── MÓDULOS ── */
+    .modules-bg { background: var(--white); }
+
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .module-card {
+      border-radius: 20px;
+      padding: 2.2rem 2rem;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      display: block;
+      transition: transform 0.3s cubic-bezier(.22,.68,0,1.15), box-shadow 0.3s;
+    }
+
+    .module-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(61,53,48,0.10);
+    }
+
+    .module-card.m1 { background: var(--peach); }
+    .module-card.m2 { background: var(--sage); }
+    .module-card.m3 { background: var(--terracotta); }
+    .module-card.m4 { background: var(--mustard); }
+
+    .module-card::after {
+      content: '';
+      position: absolute;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      bottom: -50px; right: -40px;
+      pointer-events: none;
+    }
+
+    .module-number {
+      font-family: var(--serif);
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      color: rgba(61,53,48,0.45);
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .module-card.m3 .module-number { color: rgba(255,255,255,0.6); }
+    .module-card.m4 .module-number { color: rgba(61,53,48,0.5); }
+
+    .module-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .module-title {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 0.8rem;
+    }
+
+    .module-card.m3 .module-title { color: var(--white); }
+
+    .module-desc {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      color: var(--ink);
+      opacity: 0.65;
+      line-height: 1.7;
+    }
+
+    .module-card.m3 .module-desc { color: rgba(255,255,255,0.85); opacity: 1; }
+
+    .module-topics {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .topic-pill {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.7rem;
+      border-radius: 2rem;
+      background: rgba(255,255,255,0.4);
+      color: var(--ink);
+    }
+
+    .module-card.m3 .topic-pill {
+      background: rgba(255,255,255,0.25);
+      color: var(--white);
+    }
+
+    .module-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1.5rem;
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.5;
+    }
+
+    .module-card.m3 .module-arrow { color: var(--white); opacity: 0.8; }
+
+    /* ── DETALLE LACTANCIA ── */
+    .lactancia-detail {
+      margin-top: 5.5rem;
+      padding-top: 5.5rem;
+      border-top: 1px solid rgba(121,166,163,0.28);
+      scroll-margin-top: 5rem;
+    }
+
+    .lactancia-header {
+      max-width: 760px;
+      margin-bottom: 3.5rem;
+    }
+
+    .lactancia-kicker {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.8rem;
+    }
+
+    .lactancia-title {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 4.4rem);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--ink);
+      margin-bottom: 1.2rem;
+    }
+
+    .lactancia-title em {
+      color: var(--terracotta);
+      font-style: italic;
+    }
+
+    .lactancia-lead {
+      font-family: var(--sans);
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 680px;
+    }
+
+    .lactancia-poster-stage {
+      background: var(--cream);
+      padding: 3rem;
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid rgba(238,193,164,0.55);
+      border-bottom: 1px solid rgba(238,193,164,0.55);
+    }
+
+    .lactancia-poster {
+      display: block;
+      width: min(100%, 480px);
+      height: auto;
+      box-shadow: 0 18px 50px rgba(61,53,48,0.13);
+    }
+
+    .lactancia-index {
+      margin: 4.5rem 0 1rem;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid rgba(121,166,163,0.3);
+    }
+
+    .lactancia-index li {
+      border-bottom: 1px solid rgba(121,166,163,0.3);
+    }
+
+    .lactancia-index li:nth-child(odd) {
+      border-right: 1px solid rgba(121,166,163,0.3);
+    }
+
+    .lactancia-index a {
+      min-height: 72px;
+      padding: 1rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      color: var(--ink);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .lactancia-index a:hover {
+      background: rgba(199,215,202,0.32);
+      color: var(--teal);
+    }
+
+    .lactancia-index-number {
+      flex: 0 0 auto;
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .lactancia-index-label {
+      font-family: var(--sans);
+      font-size: 0.74rem;
+      font-weight: 500;
+      line-height: 1.45;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .lactancia-section {
+      display: grid;
+      grid-template-columns: minmax(170px, 230px) minmax(0, 1fr);
+      gap: 3.5rem;
+      padding: 5rem 0;
+      border-top: 1px solid rgba(238,193,164,0.62);
+      scroll-margin-top: 6rem;
+    }
+
+    .lactancia-section-heading {
+      align-self: start;
+      position: sticky;
+      top: 6.5rem;
+    }
+
+    .lactancia-section-number {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.65rem;
+    }
+
+    .lactancia-section-heading h3 {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+      font-weight: 400;
+      line-height: 1.05;
+      color: var(--ink);
+    }
+
+    .lactancia-copy {
+      min-width: 0;
+      max-width: 780px;
+      font-family: var(--sans);
+      font-size: 0.94rem;
+      color: var(--ink);
+      line-height: 1.85;
+    }
+
+    .lactancia-copy h4 {
+      font-family: var(--serif);
+      font-size: 1.75rem;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--teal);
+      margin: 2.8rem 0 0.8rem;
+    }
+
+    .lactancia-copy h4:first-child { margin-top: 0; }
+
+    .lactancia-copy h5 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      line-height: 1.25;
+      color: var(--terracotta);
+      margin: 1.9rem 0 0.55rem;
+    }
+
+    .lactancia-copy p { margin-bottom: 1rem; }
+
+    .lactancia-copy ul,
+    .lactancia-copy ol {
+      margin: 0.75rem 0 1.2rem;
+      padding-left: 1.35rem;
+    }
+
+    .lactancia-copy li { margin-bottom: 0.42rem; }
+
+    .lactancia-copy blockquote {
+      margin: 1.25rem 0 1.6rem;
+      padding: 0.2rem 0 0.2rem 1.35rem;
+      border-left: 3px solid var(--peach);
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .lactancia-note {
+      margin: 1.4rem 0;
+      padding: 1.2rem 1.4rem;
+      border-left: 4px solid var(--teal);
+      background: rgba(199,215,202,0.25);
+    }
+
+    .lactancia-note.warning {
+      border-left-color: var(--terracotta);
+      background: rgba(238,193,164,0.2);
+    }
+
+    .lactancia-note strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
+    }
+
+    .lactancia-note p:last-child,
+    .lactancia-note ul:last-child { margin-bottom: 0; }
+
+    .lactancia-table-wrap {
+      overflow-x: auto;
+      margin: 1.25rem 0 0.6rem;
+    }
+
+    .lactancia-table {
+      width: 100%;
+      min-width: 590px;
+      border-collapse: collapse;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .lactancia-table th,
+    .lactancia-table td {
+      padding: 0.85rem 0.9rem;
+      border: 1px solid rgba(61,53,48,0.18);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .lactancia-table th {
+      background: var(--teal);
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .lactancia-table tr:nth-child(even) td {
+      background: rgba(199,215,202,0.2);
+    }
+
+    .lactancia-table-source {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .lactancia-sources {
+      margin-top: 2.6rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(121,166,163,0.24);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .lactancia-sources h4 {
+      margin-top: 0;
+      font-size: 1.35rem;
+      color: var(--ink);
+    }
+
+    .lactancia-sources a {
+      color: var(--teal);
+      overflow-wrap: anywhere;
+    }
+
+    .myth-list {
+      margin-top: 0.5rem;
+    }
+
+    .myth-pair {
+      padding: 1.4rem 0;
+      border-bottom: 1px solid rgba(238,193,164,0.55);
+    }
+
+    .myth-pair:last-child { border-bottom: 0; }
+
+    .myth {
+      color: var(--terracotta);
+      font-weight: 500;
+      margin-bottom: 0.25rem !important;
+    }
+
+    .fact {
+      color: var(--ink);
+      margin-bottom: 0 !important;
+    }
+
+    /* ── EQUIPO ── */
+    .team-bg { background: var(--cream); }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    .member-card {
+      background: var(--white);
+      border-radius: 4px;
+      padding: 1.2rem 1.2rem 1.8rem;
+      box-shadow: 0 4px 22px rgba(61,53,48,0.07);
+      transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.3s;
+      text-align: center;
+    }
+
+    .member-card:nth-child(1) { transform: rotate(-1.2deg); }
+    .member-card:nth-child(2) { transform: rotate(0.7deg); margin-top: -12px; }
+    .member-card:nth-child(3) { transform: rotate(-0.5deg); }
+
+    .member-card:hover {
+      transform: rotate(0deg) translateY(-6px) !important;
+      box-shadow: 0 16px 40px rgba(61,53,48,0.12);
+    }
+
+    .member-photo {
+      width: 100%;
+      aspect-ratio: 1/1;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      font-size: 2.5rem;
+    }
+
+    img.member-photo {
+      display: block;
+      object-fit: cover;
+      object-position: center 28%;
+    }
+
+    .member-card:nth-child(1) .member-photo { background: var(--peach); }
+    .member-card:nth-child(2) .member-photo { background: var(--sage); }
+    .member-card:nth-child(3) .member-photo { background: #f5ddd0; }
+
+    .member-role {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.35rem;
+    }
+
+    .member-name {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+
+    .member-bio {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── QR BANNER ── */
+    .qr-banner {
+      background: var(--teal);
+      padding: 5rem 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+
+    .qr-text { color: var(--white); }
+
+    .qr-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 0.8rem;
+    }
+
+    .qr-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .qr-title em { font-style: italic; }
+
+    .qr-desc {
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      opacity: 0.8;
+      max-width: 420px;
+      line-height: 1.75;
+    }
+
+    .qr-box {
+      flex-shrink: 0;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .qr-placeholder {
+      width: 140px; height: 140px;
+      background: var(--cream);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Simple QR pattern */
+    .qr-placeholder svg { width: 100px; height: 100px; opacity: 0.5; }
+
+    .qr-caption {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2.5rem 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(238,193,164,0.45);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--ink);
+    }
+
+    .footer-logo em { color: var(--terracotta); font-style: italic; }
+
+    .footer-inst {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .footer-right {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-align: right;
+      line-height: 1.6;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .site-nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; gap: 3rem; }
+      .hero-visual { display: none; }
+      .section-wrap { padding: 4rem 1.5rem; }
+      .modules-grid { grid-template-columns: 1fr; }
+      .lactancia-detail { margin-top: 4rem; padding-top: 4rem; }
+      .lactancia-poster-stage { padding: 1.5rem; }
+      .lactancia-index { grid-template-columns: 1fr; }
+      .lactancia-index li:nth-child(odd) { border-right: 0; }
+      .lactancia-section {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+        padding: 4rem 0;
+      }
+      .lactancia-section-heading { position: static; }
+      .team-grid { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto; }
+      .member-card:nth-child(1),
+      .member-card:nth-child(2),
+      .member-card:nth-child(3) { transform: rotate(0); margin-top: 0; }
+      .qr-banner { flex-direction: column; padding: 4rem 1.5rem; text-align: center; }
+      .qr-desc { margin: 0 auto; }
+      footer { flex-direction: column; text-align: center; }
+      .footer-right { text-align: center; }
+    }
+
+    .lactancia-page {
+      min-height: 100vh;
+      padding-top: 7rem;
+      background: var(--white);
+    }
+
+    .lactancia-page .lactancia-detail {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .module-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 2.2rem;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    .module-back:hover { color: var(--terracotta); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="nav-logo" href="index.html">
+      <span class="nav-logo-main">Puerperio <em>Saludable</em></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#modulos">Módulos</a></li>
+      <li><a href="index.html#equipo">Equipo</a></li>
+    </ul>
+  </nav>
+
+  <main class="lactancia-page">
+    <div class="section-wrap">
+      <a class="module-back" href="index.html#modulos">← Volver a módulos</a>
+      <article class="lactancia-detail" id="lactancia-detalle">
+        <header class="lactancia-header">
+          <p class="lactancia-kicker">Módulo 01 · Guía práctica</p>
+          <h2 class="lactancia-title">Lactancia <em>materna</em></h2>
+          <p class="lactancia-lead">
+            Orientaciones para extraer y conservar leche materna, reconocer complicaciones,
+            encontrar posiciones cómodas y acompañar el crecimiento del recién nacido.
+          </p>
+        </header>
+
+        <div class="lactancia-poster-stage">
+          <img
+            class="lactancia-poster"
+            src="assets/afiches/Lactancia.png"
+            alt="Afiche Lactancia en el posparto con recomendaciones sobre libre demanda, buen acople, contacto piel con piel y bienestar materno"
+            loading="lazy"
+          />
+        </div>
+
+        <nav aria-label="Contenido del módulo de lactancia">
+          <ol class="lactancia-index">
+            <li>
+              <a href="#extraccion-leche">
+                <span class="lactancia-index-number">01</span>
+                <span class="lactancia-index-label">Extracción y almacenamiento</span>
+              </a>
+            </li>
+            <li>
+              <a href="#complicaciones-lactancia">
+                <span class="lactancia-index-number">02</span>
+                <span class="lactancia-index-label">Complicaciones frecuentes</span>
+              </a>
+            </li>
+            <li>
+              <a href="#posiciones-amamantar">
+                <span class="lactancia-index-number">03</span>
+                <span class="lactancia-index-label">Posiciones para amamantar</span>
+              </a>
+            </li>
+            <li>
+              <a href="#lactancia-tandem">
+                <span class="lactancia-index-number">04</span>
+                <span class="lactancia-index-label">Embarazo y más de un niño</span>
+              </a>
+            </li>
+            <li>
+              <a href="#incrementos-peso">
+                <span class="lactancia-index-number">05</span>
+                <span class="lactancia-index-label">Incrementos de peso</span>
+              </a>
+            </li>
+            <li>
+              <a href="#mitos-lactancia">
+                <span class="lactancia-index-number">06</span>
+                <span class="lactancia-index-label">Mitos frecuentes</span>
+              </a>
+            </li>
+          </ol>
+        </nav>
+
+        <section class="lactancia-section" id="extraccion-leche">
+          <div class="lactancia-section-heading">
+            <span class="lactancia-section-number">Apartado 01</span>
+            <h3>Extracción de leche materna</h3>
+          </div>
+
+          <div class="lactancia-copy">
+            <h4>¿Cuándo puede ser útil extraer leche?</h4>
+            <p>La extracción de leche materna puede ayudar en distintas situaciones:</p>
+            <ul>
+              <li>Cuando la madre debe separarse temporalmente de su bebé.</li>
+              <li>Para mantener la producción de leche.</li>
+              <li>Cuando existe congestión mamaria.</li>
+              <li>Para alimentar a un recién nacido prematuro o con dificultades para succionar.</li>
+              <li>Cuando la madre retorna al trabajo o estudios.</li>
+            </ul>
+            <blockquote>
+              La extracción de leche materna puede realizarse para mantener la producción de leche
+              en caso de separación madre-hijo, aliviar la congestión mamaria, alimentar al niño
+              cuando presenta dificultades para mamar o cuando la madre se reintegra al trabajo.
+              (Manual de Lactancia Materna, MINSAL)
+            </blockquote>
+
+            <h4>Antes de comenzar</h4>
+            <p>Para favorecer una extracción más cómoda y efectiva:</p>
+            <ul>
+              <li>Busca un lugar tranquilo y limpio.</li>
+              <li>Lava tus manos con agua y jabón.</li>
+              <li>Siéntate cómodamente.</li>
+              <li>Ten a mano los recipientes donde almacenarás la leche.</li>
+              <li>Intenta relajarte pensando en tu bebé o mirando una fotografía.</li>
+            </ul>
+            <blockquote>
+              Busca un lugar tranquilo y limpio. Lávate las manos. Siéntate cómoda.
+              (Manual Operativo de Lactancia Materna, MINSAL)
+            </blockquote>
+
+            <h4>¿Cómo extraer leche?</h4>
+            <h5>Extracción manual</h5>
+            <ol>
+              <li>Lava tus manos.</li>
+              <li>Coloca el pulgar por encima de la areola y los dedos por debajo formando una letra “C”.</li>
+              <li>Presiona suavemente hacia el tórax.</li>
+              <li>Comprime y libera de manera rítmica.</li>
+              <li>Repite alrededor de toda la mama.</li>
+            </ol>
+            <p>
+              La extracción manual es una técnica que toda madre debería conocer, ya que no
+              requiere equipamiento y puede utilizarse en cualquier momento.
+            </p>
+            <blockquote>
+              Este tipo de técnica se debe enseñar a todas las madres.
+              (Manual de Lactancia Materna, MINSAL)
+            </blockquote>
+
+            <h5>Extracción con sacaleches</h5>
+            <p>Puede realizarse con extractores manuales o eléctricos.</p>
+            <p>
+              Antes de comenzar se recomienda realizar un masaje suave en la mama para favorecer
+              la eyección de leche.
+            </p>
+            <blockquote>
+              La extracción es una habilidad que irás aprendiendo, no te desanimes si las primeras
+              veces sacas poco volumen. (Manual Operativo de Lactancia Materna, MINSAL)
+            </blockquote>
+
+            <h5>Consejos importantes</h5>
+            <ul>
+              <li>Lo extraído no refleja necesariamente la cantidad de leche que produces.</li>
+              <li>La cantidad obtenida suele aumentar con la práctica.</li>
+              <li>
+                Mientras más frecuentemente se extraiga leche, mayor será el estímulo para seguir
+                produciendo.
+              </li>
+            </ul>
+            <blockquote>
+              No hay mejor extractor que tu propio hijo.
+              (Manual Operativo de Lactancia Materna, MINSAL)
+            </blockquote>
+
+            <h5>Higiene del extractor</h5>
+            <p>Después de cada uso:</p>
+            <ul>
+              <li>Desarma todas las piezas.</li>
+              <li>Lava con agua y detergente suave.</li>
+              <li>Enjuaga cuidadosamente.</li>
+              <li>Deja secar al aire o con toalla de papel limpia.</li>
+            </ul>
+            <blockquote>
+              Los extractores son de uso personal y no se deben compartir.
+              (Manual Operativo de Lactancia Materna, MINSAL)
+            </blockquote>
+
+            <h4>Almacenamiento de la leche materna extraída</h4>
+            <h5>¿Cómo almacenar la leche materna?</h5>
+            <p>
+              La leche materna extraída debe almacenarse en recipientes limpios y bien cerrados.
+              Se recomienda utilizar:
+            </p>
+            <ol>
+              <li>Frascos de vidrio con tapa.</li>
+              <li>Recipientes de plástico libres de BPA.</li>
+              <li>Bolsas diseñadas específicamente para almacenar leche materna.</li>
+            </ol>
+            <blockquote>
+              La leche materna se puede almacenar, en orden de preferencia, en contenedores de
+              vidrio limpios con tapa, contenedores de plástico libres de BPA y bolsas diseñadas
+              específicamente para almacenar leche materna.
+              (Manual Operativo de Lactancia Materna, MINSAL)
+            </blockquote>
+
+            <h5>Recomendaciones antes de guardar la leche</h5>
+            <ul>
+              <li>Etiqueta cada recipiente con la fecha de extracción.</li>
+              <li>Guarda la leche en pequeñas cantidades (50-100 mL).</li>
+              <li>Utiliza primero la leche más antigua.</li>
+              <li>No almacenes la leche en la puerta del refrigerador.</li>
+            </ul>
+            <blockquote>
+              Etiquetar los recipientes de leche con la fecha de la extracción y guardarlos en
+              orden de manera de descongelar siempre la leche más antigua.
+              (Manual Operativo de Lactancia Materna, MINSAL)
+            </blockquote>
+
+            <h5>¿Cuánto dura la leche materna?</h5>
+            <div class="lactancia-table-wrap">
+              <table class="lactancia-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Lugar de almacenamiento</th>
+                    <th scope="col">Temperatura</th>
+                    <th scope="col">Duración</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Temperatura ambiente</td>
+                    <td>Hasta 25 °C</td>
+                    <td>6-8 horas</td>
+                  </tr>
+                  <tr>
+                    <td>Cooler con hielo</td>
+                    <td>-15 °C a 4 °C</td>
+                    <td>24 horas</td>
+                  </tr>
+                  <tr>
+                    <td>Refrigerador</td>
+                    <td>4 °C</td>
+                    <td>5 días</td>
+                  </tr>
+                  <tr>
+                    <td>Congelador de refrigerador con 1 puerta</td>
+                    <td>-15 °C</td>
+                    <td>2 semanas</td>
+                  </tr>
+                  <tr>
+                    <td>Congelador de refrigerador con 2 puertas</td>
+                    <td>-18 °C</td>
+                    <td>3-6 meses</td>
+                  </tr>
+                  <tr>
+                    <td>Congelador independiente</td>
+                    <td>-20 °C</td>
+                    <td>6-12 meses</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="lactancia-table-source">
+              Fuente: Manual Operativo de Lactancia Materna, MINSAL.
+            </p>
+
+            <h5>¿Cómo transportar la leche?</h5>
+            <ul>
+              <li>Mantén la cadena de frío.</li>
+              <li>Utiliza un bolso térmico o cooler con hielo.</li>
+              <li>Si existe refrigerador disponible, almacénala allí.</li>
+              <li>Evita cambios bruscos de temperatura.</li>
+            </ul>
+            <blockquote>
+              Para trasladar la leche desde el trabajo u otro lugar a la casa, es recomendable
+              tener un bolso térmico con una bolsa con hielo o unidades refrigerantes.
+              (Manual Operativo de Lactancia Materna, MINSAL)
+            </blockquote>
+
+            <h5>¿Cómo descongelar la leche?</h5>
+            <ul>
+              <li>Utiliza primero la leche más antigua.</li>
+              <li>Descongela lentamente en el refrigerador durante la noche.</li>
+              <li>Una vez descongelada, úsala durante el mismo día.</li>
+              <li>No vuelvas a congelar leche ya descongelada.</li>
+            </ul>
+            <blockquote>
+              Se debe escoger la leche más antigua para descongelar.
+              (Manual de Lactancia Materna, MINSAL)
+            </blockquote>
+            <blockquote>
+              La leche descongelada no puede volver a congelarse.
+              (Manual de Lactancia Materna, MINSAL)
+            </blockquote>
+
+            <div class="lactancia-note warning">
+              <strong>Importante</strong>
+              <ul>
+                <li>No utilices microondas para descongelar o calentar la leche.</li>
+                <li>No vuelvas a congelar leche ya descongelada.</li>
+                <li>No mezcles leche recién extraída y tibia con leche ya refrigerada.</li>
+              </ul>
+            </div>
+
+            <div class="lactancia-sources">
+              <h4>Fuentes utilizadas</h4>
+              <ol>
+                <li>
+                  Ministerio de Salud de Chile. Manual Operativo de Lactancia Materna para
+                  Profesionales y Usuarios, 2017.
+                </li>
+                <li>Ministerio de Salud de Chile. Manual de Lactancia Materna.</li>
+                <li>
+                  Organización Mundial de la Salud (OMS). Lactancia materna y alimentación del
+                  lactante.
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section class="lactancia-section" id="complicaciones-lactancia">
+          <div class="lactancia-section-heading">
+            <span class="lactancia-section-number">Apartado 02</span>
+            <h3>Complicaciones frecuentes</h3>
+          </div>
+
+          <div class="lactancia-copy">
+            <h4>Dolor al amamantar</h4>
+            <p>
+              Durante los primeros días puede existir sensibilidad en los pezones. Sin embargo,
+              el dolor intenso o persistente no es normal y suele indicar que existe un problema
+              en la técnica de lactancia.
+            </p>
+            <p>Las causas más frecuentes son:</p>
+            <ul>
+              <li>Mal acople al pecho.</li>
+              <li>Posición incorrecta.</li>
+              <li>Grietas del pezón.</li>
+              <li>Congestión mamaria.</li>
+            </ul>
+            <blockquote>
+              Lo importante es que cada díada encuentre posiciones que les acomoden, no generen
+              dolor y logren una correcta transferencia de leche al niño/a.
+              (Manual Operativo de Lactancia Materna, MINSAL)
+            </blockquote>
+            <h5>¿Qué hacer?</h5>
+            <ul>
+              <li>Revisar la posición y el acople.</li>
+              <li>Solicitar apoyo profesional si el dolor persiste.</li>
+              <li>Continuar amamantando si es posible.</li>
+            </ul>
+
+            <h4>Grietas del pezón</h4>
+            <p>
+              Son pequeñas lesiones o fisuras que aparecen en el pezón y pueden provocar dolor
+              durante la lactancia.
+            </p>
+            <p>Las causas más frecuentes son:</p>
+            <ul>
+              <li>Mal acople.</li>
+              <li>Retirar bruscamente al bebé del pecho.</li>
+              <li>Uso incorrecto de extractores.</li>
+            </ul>
+            <h5>¿Qué hacer?</h5>
+            <ul>
+              <li>Corregir el acople.</li>
+              <li>Mantener el pezón limpio y seco.</li>
+              <li>Aplicar algunas gotas de leche materna sobre la zona después de amamantar.</li>
+              <li>Consultar si las lesiones son profundas o existe sangrado importante.</li>
+            </ul>
+
+            <h4>Congestión mamaria</h4>
+            <p>
+              Ocurre cuando las mamas se encuentran excesivamente llenas de leche y se produce
+              inflamación.
+            </p>
+            <p>Puede manifestarse como:</p>
+            <ul>
+              <li>Mamas tensas y dolorosas.</li>
+              <li>Sensación de calor.</li>
+              <li>Dificultad para que el bebé se acople.</li>
+            </ul>
+            <blockquote>
+              Cuando los pechos están demasiado llenos se dificulta el acoplamiento de la boca del
+              niño. (Manual de Lactancia Materna, MINSAL)
+            </blockquote>
+            <h5>¿Qué hacer?</h5>
+            <ul>
+              <li>Amamantar frecuentemente.</li>
+              <li>Favorecer un buen vaciamiento de la mama.</li>
+              <li>
+                Extraer una pequeña cantidad de leche antes de la toma si la mama está muy tensa.
+              </li>
+            </ul>
+
+            <h4>Conducto obstruido</h4>
+            <p>
+              Se produce cuando la leche no logra drenar adecuadamente por uno de los conductos
+              mamarios.
+            </p>
+            <p>Puede observarse:</p>
+            <ul>
+              <li>Bulto doloroso localizado.</li>
+              <li>Sensación de tensión.</li>
+              <li>Ausencia de fiebre.</li>
+            </ul>
+            <h5>¿Qué hacer?</h5>
+            <ul>
+              <li>Continuar amamantando.</li>
+              <li>Masajear suavemente la zona afectada.</li>
+              <li>Favorecer el vaciamiento frecuente de la mama.</li>
+            </ul>
+
+            <h4>Mastitis</h4>
+            <p>Es una inflamación de la mama que puede asociarse a infección.</p>
+            <p>Signos frecuentes:</p>
+            <ul>
+              <li>Dolor mamario intenso.</li>
+              <li>Enrojecimiento localizado.</li>
+              <li>Sensación de calor.</li>
+              <li>Fiebre mayor o igual a 38 °C.</li>
+              <li>Malestar general.</li>
+            </ul>
+            <h5>¿Cuándo consultar?</h5>
+            <p>
+              Debe consultar de forma oportuna si presenta fiebre, dolor importante o síntomas que
+              no mejoran en 24 horas.
+            </p>
+
+            <h4>Sensación de poca leche</h4>
+            <p>
+              Muchas madres creen producir poca leche cuando en realidad la producción es
+              adecuada.
+            </p>
+            <p>Los signos que sugieren una alimentación efectiva incluyen:</p>
+            <ul>
+              <li>Aumento de peso adecuado.</li>
+              <li>Micciones frecuentes.</li>
+              <li>Bebé activo y satisfecho después de las tomas.</li>
+            </ul>
+            <div class="lactancia-note">
+              <strong>Importante</strong>
+              <p>
+                La cantidad de leche que se obtiene mediante extracción no refleja necesariamente
+                la cantidad de leche que la madre produce.
+              </p>
+            </div>
+            <blockquote>
+              Lo que te sacas no necesariamente es igual a lo que produces.
+              (Manual Operativo de Lactancia Materna, MINSAL)
+            </blockquote>
+
+            <h4>Signos de alarma durante la lactancia</h4>
+            <p>Consulta con un profesional de salud si presentas:</p>
+            <ul>
+              <li>Fiebre mayor o igual a 38 °C.</li>
+              <li>Enrojecimiento o aumento de temperatura de la mama.</li>
+              <li>Dolor intenso que impide amamantar.</li>
+              <li>Grietas profundas con sangrado.</li>
+              <li>Disminución importante de la producción de leche.</li>
+              <li>Bebé con escasa ganancia de peso o pocas micciones.</li>
+            </ul>
+
+            <div class="lactancia-sources">
+              <h4>Fuentes utilizadas</h4>
+              <ul>
+                <li>
+                  Ministerio de Salud de Chile. Manual Operativo de Lactancia Materna para
+                  Profesionales y Usuarios (2017).
+                </li>
+                <li>Ministerio de Salud de Chile. Manual de Lactancia Materna.</li>
+                <li>
+                  Organización Mundial de la Salud (OMS). Lactancia materna y apoyo a la lactancia.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="lactancia-section" id="posiciones-amamantar">
+          <div class="lactancia-section-heading">
+            <span class="lactancia-section-number">Apartado 03</span>
+            <h3>Posiciones para amamantar</h3>
+          </div>
+
+          <div class="lactancia-copy">
+            <p>
+              No existe una única posición correcta para amamantar. Lo más importante es que tanto
+              la madre como el bebé estén cómodos, que el bebé logre un buen acople al pecho y que
+              la lactancia no provoque dolor.
+            </p>
+            <blockquote>
+              La mejor posición es la que te acomode a ti y a tu hijo/a.
+              (Manual Operativo de Lactancia Materna, MINSAL)
+            </blockquote>
+            <p>
+              Además, se recomienda que la madre mantenga la espalda, los brazos y los pies
+              apoyados para evitar cansancio y molestias musculares.
+            </p>
+            <blockquote>
+              Se recomienda que la madre se encuentre cómoda y que apoye su espalda, pies y brazos
+              de forma de evitar agotamiento y dolor.
+              (Manual Operativo de Lactancia Materna, MINSAL)
+            </blockquote>
+
+            <h4>Posición acunada</h4>
+            <p>Es la posición más conocida.</p>
+            <h5>¿Cómo se realiza?</h5>
+            <ul>
+              <li>La cabeza del bebé descansa sobre el antebrazo de la madre.</li>
+              <li>El cuerpo del bebé queda de frente al cuerpo materno.</li>
+              <li>Oreja, hombro y cadera deben mantenerse alineados.</li>
+            </ul>
+            <p>Puede ser útil para:</p>
+            <ul>
+              <li>Lactancia cotidiana.</li>
+              <li>Bebés de término.</li>
+              <li>Madres que ya se sienten seguras amamantando.</li>
+            </ul>
+
+            <h4>Posición de balón de rugby o canasto</h4>
+            <p>El bebé se ubica bajo el brazo de la madre, con los pies dirigidos hacia atrás.</p>
+            <p>Puede ser útil para:</p>
+            <ul>
+              <li>Madres que tuvieron cesárea.</li>
+              <li>Embarazos gemelares.</li>
+              <li>Mamas grandes.</li>
+              <li>Bebés pequeños o prematuros.</li>
+            </ul>
+            <p>Esta posición evita ejercer presión sobre la herida operatoria de una cesárea.</p>
+
+            <h4>Posición acostada</h4>
+            <p>Madre y bebé permanecen acostados de lado, enfrentados.</p>
+            <p>Puede ser útil para:</p>
+            <ul>
+              <li>Lactancia nocturna.</li>
+              <li>Madres cansadas.</li>
+              <li>Recuperación postparto.</li>
+              <li>Recuperación de cesárea.</li>
+            </ul>
+            <blockquote>
+              Esta posición se recomienda para las madres que se recuperan de una cesárea o una
+              episiotomía, para amamantar de noche o en momentos de gran cansancio.
+              (Manual de Lactancia Materna, MINSAL)
+            </blockquote>
+
+            <h4>Posición caballito</h4>
+            <p>
+              El bebé se encuentra sentado sobre una pierna de la madre, mirando hacia el pecho.
+            </p>
+            <p>Puede ser útil para:</p>
+            <ul>
+              <li>Bebés con reflujo.</li>
+              <li>Bebés con dificultades para el acople.</li>
+              <li>Bebés con menor tono muscular.</li>
+            </ul>
+
+            <h4>Posición biológica o reclinada</h4>
+            <p>La madre se encuentra semiacostada y el bebé permanece sobre su tórax.</p>
+            <p>
+              Esta posición favorece que el recién nacido utilice sus reflejos naturales para
+              buscar el pecho y lograr un acople espontáneo.
+            </p>
+            <blockquote>
+              El acople espontáneo generalmente se logra mediante la posición biológica.
+              (Manual Operativo de Lactancia Materna, MINSAL)
+            </blockquote>
+            <p>Puede ser útil para:</p>
+            <ul>
+              <li>Primeros días de vida.</li>
+              <li>Contacto piel con piel.</li>
+              <li>Dificultades de acople.</li>
+              <li>Recién nacidos que rechazan el pecho.</li>
+            </ul>
+
+            <h4>Claves para un buen acople</h4>
+            <p>Independiente de la posición elegida:</p>
+            <ul>
+              <li>El bebé debe estar de frente al cuerpo de la madre.</li>
+              <li>El bebé debe acercarse al pecho y no el pecho al bebé.</li>
+              <li>La boca debe abrirse ampliamente.</li>
+              <li>El mentón debe tocar el pecho.</li>
+              <li>Los labios deben estar evertidos (hacia afuera).</li>
+              <li>La lactancia no debería causar dolor.</li>
+            </ul>
+            <blockquote>
+              Nunca el pecho debe ir hacia el niño/a, es el niño el que va hacia el pecho.
+              (Manual Operativo de Lactancia Materna, MINSAL)
+            </blockquote>
+
+            <div class="lactancia-sources">
+              <h4>Fuentes utilizadas</h4>
+              <ul>
+                <li>
+                  Ministerio de Salud de Chile. Manual Operativo de Lactancia Materna para
+                  Profesionales y Usuarios (2017), Unidad 3: Práctica de la lactancia, temas
+                  “Posiciones para amamantar” y “Un correcto acople al pecho”.
+                </li>
+                <li>Ministerio de Salud de Chile. Manual de Lactancia Materna.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="lactancia-section" id="lactancia-tandem">
+          <div class="lactancia-section-heading">
+            <span class="lactancia-section-number">Apartado 04</span>
+            <h3>Lactancia durante el embarazo y con más de un niño</h3>
+          </div>
+
+          <div class="lactancia-copy">
+            <h4>¿Es posible amamantar a dos hijos?</h4>
+            <p>
+              Sí. Algunas madres continúan amamantando a su hijo mayor durante el embarazo y
+              después del nacimiento del nuevo bebé. Esta práctica se conoce como lactancia en
+              tándem.
+            </p>
+            <p>
+              En la mayoría de los casos, es una práctica segura y compatible con una lactancia
+              exitosa.
+            </p>
+
+            <h4>¿La leche será suficiente para ambos?</h4>
+            <p>Sí. El cuerpo de la madre adapta la producción de leche según la demanda.</p>
+            <p>
+              Mientras más leche extraigan los niños al mamar, mayor será el estímulo para producir
+              leche. La producción funciona principalmente por el vaciamiento frecuente de la mama.
+            </p>
+
+            <h4>¿Quién debe alimentarse primero?</h4>
+            <p>
+              Durante las primeras semanas, se recomienda ofrecer primero el pecho al recién
+              nacido. Esto es importante porque:
+            </p>
+            <ul>
+              <li>El recién nacido depende exclusivamente de la leche materna.</li>
+              <li>Necesita recibir calostro durante los primeros días de vida.</li>
+              <li>Tiene mayores requerimientos nutricionales.</li>
+            </ul>
+
+            <h4>¿El hijo mayor puede tomar calostro?</h4>
+            <p>Sí. El calostro producido después del parto es seguro para ambos niños.</p>
+            <p>
+              Sin embargo, se recomienda asegurar que el recién nacido tenga acceso prioritario a
+              las tomas durante los primeros días.
+            </p>
+
+            <h4>Beneficios de la lactancia en tándem</h4>
+            <p>Puede favorecer:</p>
+            <ul>
+              <li>El vínculo familiar.</li>
+              <li>Una transición más suave para el hermano mayor.</li>
+              <li>El mantenimiento de la producción de leche.</li>
+              <li>La disminución de celos o sentimientos de desplazamiento en algunos niños.</li>
+            </ul>
+
+            <h4>¿Cuándo consultar?</h4>
+            <p>Solicita orientación profesional si:</p>
+            <ul>
+              <li>Presentas dolor importante al amamantar.</li>
+              <li>Sientes agotamiento físico excesivo.</li>
+              <li>Tienes dudas sobre la ganancia de peso del recién nacido.</li>
+              <li>Existen antecedentes de embarazo de alto riesgo o indicación médica específica.</li>
+            </ul>
+
+            <div class="lactancia-note">
+              <strong>Importante</strong>
+              <p>
+                Cada familia es diferente. Algunas madres deciden continuar amamantando a ambos
+                hijos y otras prefieren realizar un destete durante el embarazo o después del
+                parto. Ambas decisiones son válidas y deben respetarse.
+              </p>
+            </div>
+
+            <div class="lactancia-sources">
+              <h4>Fuentes utilizadas</h4>
+              <ul>
+                <li>
+                  Ministerio de Salud de Chile. Manual Operativo de Lactancia Materna para
+                  Profesionales y Usuarios, capítulo “Lactancia durante el embarazo y cuando hay
+                  más de un niño/a”.
+                </li>
+                <li>
+                  Organización Mundial de la Salud (OMS). Lactancia materna y alimentación
+                  infantil.
+                </li>
+                <li>Asociación Española de Pediatría (AEPED). Lactancia en tándem.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="lactancia-section" id="incrementos-peso">
+          <div class="lactancia-section-heading">
+            <span class="lactancia-section-number">Apartado 05</span>
+            <h3>Incrementos de peso esperados</h3>
+          </div>
+
+          <div class="lactancia-copy">
+            <h4>Es normal que los recién nacidos bajen de peso</h4>
+            <p>
+              Durante los primeros días de vida, la mayoría de los recién nacidos pierde peso.
+              Esta pérdida ocurre porque eliminan líquidos acumulados durante el embarazo y se
+              están adaptando a la alimentación extrauterina.
+            </p>
+            <p>
+              Generalmente, se considera normal una pérdida de hasta un 7-10% del peso de
+              nacimiento durante los primeros días de vida.
+            </p>
+
+            <h4>¿Cuándo recuperan el peso de nacimiento?</h4>
+            <p>
+              La mayoría de los recién nacidos recupera su peso de nacimiento entre los 10 y 14
+              días de vida. Por esta razón, durante las primeras semanas son muy importantes los
+              controles de salud.
+            </p>
+
+            <h4>¿Cómo debería aumentar de peso mi bebé?</h4>
+            <p>
+              Una vez recuperado el peso de nacimiento, se espera que el bebé aumente de peso de
+              forma progresiva. Como referencia general:
+            </p>
+            <ul>
+              <li>Durante los primeros 3 meses: aproximadamente 25-35 gramos al día.</li>
+              <li>Entre los 3 y 6 meses: aproximadamente 15-20 gramos al día.</li>
+            </ul>
+            <p>Estos valores son aproximados y pueden variar entre cada niño.</p>
+
+            <h4>¿Cómo saber si está tomando suficiente leche?</h4>
+            <p>Además del peso, existen otras señales que indican una alimentación adecuada:</p>
+            <ul>
+              <li>Se alimenta frecuentemente.</li>
+              <li>Se observa activo y despierto durante algunos períodos del día.</li>
+              <li>Moja varios pañales diariamente.</li>
+              <li>Presenta deposiciones acordes a su edad.</li>
+              <li>Se observa satisfecho después de la mayoría de las tomas.</li>
+            </ul>
+
+            <h4>¿Cuándo consultar?</h4>
+            <p>Consulta con un profesional de salud si:</p>
+            <ul>
+              <li>La pérdida de peso supera lo esperado.</li>
+              <li>No recupera el peso de nacimiento después de dos semanas.</li>
+              <li>Presenta pocas micciones.</li>
+              <li>Se observa excesivamente somnoliento o difícil de despertar para alimentarlo.</li>
+              <li>Existen dudas sobre la cantidad de leche que está recibiendo.</li>
+            </ul>
+
+            <div class="lactancia-sources">
+              <h4>Fuentes utilizadas</h4>
+              <ul>
+                <li>
+                  Ministerio de Salud de Chile. Manual Operativo de Lactancia Materna para
+                  Profesionales y Usuarios (tema “Incrementos de peso esperados” y “¿Cómo evaluar
+                  una adecuada ingesta de leche en el niño(a)?”).
+                </li>
+                <li>
+                  Organización Mundial de la Salud (OMS). Infant and Young Child Feeding.
+                </li>
+                <li>
+                  Academia Americana de Pediatría (AAP). Seguimiento del crecimiento del recién
+                  nacido.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="lactancia-section" id="mitos-lactancia">
+          <div class="lactancia-section-heading">
+            <span class="lactancia-section-number">Apartado 06</span>
+            <h3>Mitos frecuentes sobre la lactancia</h3>
+          </div>
+
+          <div class="lactancia-copy">
+            <div class="myth-list">
+              <div class="myth-pair">
+                <p class="myth">Mito: “Tengo pechos pequeños, produciré menos leche.”</p>
+                <p class="fact">Realidad: El tamaño de las mamas no determina la producción de leche.</p>
+              </div>
+              <div class="myth-pair">
+                <p class="myth">Mito: “Mi leche se ve aguada, no alimenta.”</p>
+                <p class="fact">
+                  Realidad: La leche materna cambia durante la toma y se adapta a las necesidades
+                  del bebé.
+                </p>
+              </div>
+              <div class="myth-pair">
+                <p class="myth">Mito: “Debo tomar leche para producir leche.”</p>
+                <p class="fact">
+                  Realidad: No existe evidencia de que consumir leche aumente la producción de
+                  leche materna.
+                </p>
+              </div>
+              <div class="myth-pair">
+                <p class="myth">
+                  Mito: “Si mi bebé quiere pecho seguido, significa que me quedé sin leche.”
+                </p>
+                <p class="fact">
+                  Realidad: Los recién nacidos suelen alimentarse frecuentemente, especialmente
+                  durante brotes de crecimiento.
+                </p>
+              </div>
+            </div>
+
+            <div class="lactancia-sources">
+              <h4>¿Quieres aprender más?</h4>
+              <p>Puedes encontrar información confiable sobre lactancia materna en:</p>
+              <ul>
+                <li>
+                  <a href="https://www.minsal.cl/lactancia-materna/" target="_blank" rel="noopener noreferrer">
+                    Ministerio de Salud de Chile: Lactancia materna
+                  </a>
+                </li>
+                <li>
+                  <a href="https://diprece.minsal.cl/wp-content/uploads/2018/10/manual-lactancia-profesionales-y-usuarios.pdf" target="_blank" rel="noopener noreferrer">
+                    Manual de Lactancia Materna para Profesionales y Usuarios
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.paho.org/es/temas/lactancia-materna-alimentacion-complementaria" target="_blank" rel="noopener noreferrer">
+                    Organización Panamericana de la Salud
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.who.int/es/health-topics/breastfeeding#tab=tab_1" target="_blank" rel="noopener noreferrer">
+                    Organización Mundial de la Salud: Lactancia materna
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-left">
+      <span class="footer-logo">Puerperio <em>Saludable</em></span>
+      <span class="footer-inst">2026</span>
+    </div>
+    <div class="footer-right">
+      Proyecto Educativo — Clínica Obstétrica<br/>
+      Catalina Kunstmann · Martina Barrientos · Trinidad Hurtado
+    </div>
+  </footer>
+</body>
+</html>

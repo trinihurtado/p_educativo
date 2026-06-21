@@ -6,7 +6,7 @@
   <title>Puerperio Saludable</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -36,7 +36,7 @@
     }
 
     /* ── NAV ── */
-    nav {
+    .site-nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
@@ -613,7 +613,7 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
+      .site-nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
       .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; gap: 3rem; }
       .hero-visual { display: none; }
@@ -637,7 +637,7 @@
 <body>
 
   <!-- ── NAV ── -->
-  <nav>
+  <nav class="site-nav">
     <a class="nav-logo" href="#">
       <span class="nav-logo-main">Puerperio <em>Saludable</em></span>
     </a>
@@ -660,7 +660,7 @@
       </p>
       <div class="hero-actions">
         <a class="btn-primary" href="#modulos">Ver contenidos</a>
-        <a class="btn-outline" href="#acceso">Acceder con QR</a>
+        <a class="btn-outline" href="lactancia.html">Ir a lactancia</a>
       </div>
     </div>
 
@@ -697,7 +697,7 @@
 
       <div class="modules-grid">
 
-        <a class="module-card m1" href="#">
+        <a class="module-card m1" href="lactancia.html">
           <p class="module-number">Módulo 01</p>
           <span class="module-icon">🤱</span>
           <h3 class="module-title">Lactancia Materna</h3>
@@ -708,7 +708,7 @@
             <span class="topic-pill">Extracción</span>
             <span class="topic-pill">Conservación</span>
           </div>
-          <div class="module-arrow">Ver módulo →</div>
+          <div class="module-arrow">Explorar módulo →</div>
         </a>
 
         <a class="module-card m2" href="#">
@@ -753,6 +753,8 @@
         </a>
 
       </div>
+
+
     </div>
   </section>
 
