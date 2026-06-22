@@ -485,6 +485,15 @@
       box-shadow: 0 18px 50px rgba(61,53,48,0.13);
     }
 
+    .lactancia-inline-image {
+      margin: 2.2rem auto 3rem;
+      display: block;
+      width: min(100%, 560px);
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 14px 36px rgba(61,53,48,0.12);
+    }
+
     .lactancia-index {
       margin: 4.5rem 0 1rem;
       padding: 0;
@@ -963,6 +972,23 @@
     }
 
     .module-back:hover { color: var(--terracotta); }
+
+    /* ── LEGIBILIDAD ── */
+    body { font-weight: 400; }
+    .nav-links a { font-size: 0.8rem; }
+    .lactancia-kicker { font-size: 0.74rem; }
+    .lactancia-lead { font-size: 1.12rem; }
+    .lactancia-index-label { font-size: 0.82rem; }
+    .lactancia-section-number { font-size: 0.72rem; }
+    .lactancia-copy { font-size: 1.08rem; }
+    .lactancia-copy h4 { font-size: 1.9rem; }
+    .lactancia-copy h5 { font-size: 1.42rem; }
+    .lactancia-copy blockquote { font-size: 1.32rem; }
+    .lactancia-table { font-size: 0.94rem; }
+    .lactancia-table-source { font-size: 0.82rem; }
+    .lactancia-sources { font-size: 0.9rem; }
+    .module-back { font-size: 0.78rem; }
+    .footer-right { font-size: 0.82rem; }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -1454,6 +1480,13 @@
               de forma de evitar agotamiento y dolor.
               (Manual Operativo de Lactancia Materna, MINSAL)
             </blockquote>
+
+            <img
+              class="lactancia-inline-image"
+              src="assets/afiches/posiciones.jpeg"
+              alt="Infografía con diferentes posiciones para amamantar"
+              loading="lazy"
+            />
 
             <h4>Posición acunada</h4>
             <p>Es la posición más conocida.</p>

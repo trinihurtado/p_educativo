@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Higiene y Cuidados | Puerperio Saludable</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --cream:      #F9E5D7;
+      --peach:      #EEC1A4;
+      --teal:       #79A6A3;
+      --mustard:    #E5B36A;
+      --sage:       #C7D7CA;
+      --terracotta: #E7926C;
+      --ink:        #3d3530;
+      --muted:      #8c7b74;
+      --white:      #ffffff;
+
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'Jost', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 3.5rem;
+      background: rgba(249,229,215,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(238,193,164,0.4);
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      text-decoration: none;
+    }
+
+    .nav-logo-main {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: 0.03em;
+    }
+
+    .nav-logo-main em { color: var(--terracotta); font-style: italic; }
+
+    .nav-logo-sub {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--teal); }
+
+    .nav-badge {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      background: var(--teal);
+      padding: 0.45rem 1.1rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 3.5rem 5rem;
+      gap: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: var(--sage);
+      filter: blur(80px);
+      opacity: 0.4;
+      top: -100px; right: -80px;
+      pointer-events: none;
+    }
+
+    .hero-text { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px; height: 1px;
+      background: var(--teal);
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 4.5vw, 5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--terracotta);
+      display: block;
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 420px;
+      margin-bottom: 2.4rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--terracotta);
+      padding: 0.85rem 2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--teal); transform: translateY(-2px); }
+
+    .btn-outline {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      border: 1px solid rgba(61,53,48,0.3);
+      padding: 0.85rem 2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+
+    /* Hero visual side */
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hero-stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1.4rem 1.2rem;
+      box-shadow: 0 4px 20px rgba(61,53,48,0.06);
+    }
+
+    .stat-card.accent-teal   { background: var(--teal); }
+    .stat-card.accent-terra  { background: var(--terracotta); }
+    .stat-card.accent-sage   { background: var(--sage); }
+
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-card.accent-teal .stat-num,
+    .stat-card.accent-terra .stat-num { color: var(--white); }
+    .stat-card.accent-sage .stat-num  { color: var(--ink); }
+    .stat-card:not([class*=accent]) .stat-num { color: var(--terracotta); }
+
+    .stat-label {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+
+    .stat-card.accent-teal .stat-label,
+    .stat-card.accent-terra .stat-label { color: rgba(255,255,255,0.8); }
+    .stat-card.accent-sage .stat-label  { color: var(--ink); opacity: 0.7; }
+    .stat-card:not([class*=accent]) .stat-label { color: var(--muted); }
+
+    /* ── SECTION COMMON ── */
+    .section-wrap {
+      padding: 6rem 3.5rem;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .section-header { margin-bottom: 3.5rem; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.7rem;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 22px; height: 1px;
+      background: var(--teal);
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .section-title em { font-style: italic; color: var(--terracotta); }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 520px;
+      margin-top: 0.8rem;
+    }
+
+    /* ── MÓDULOS ── */
+    .modules-bg { background: var(--white); }
+
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .module-card {
+      border-radius: 20px;
+      padding: 2.2rem 2rem;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      display: block;
+      transition: transform 0.3s cubic-bezier(.22,.68,0,1.15), box-shadow 0.3s;
+    }
+
+    .module-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(61,53,48,0.10);
+    }
+
+    .module-card.m1 { background: var(--peach); }
+    .module-card.m2 { background: var(--sage); }
+    .module-card.m3 { background: var(--terracotta); }
+    .module-card.m4 { background: var(--mustard); }
+
+    .module-card::after {
+      content: '';
+      position: absolute;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      bottom: -50px; right: -40px;
+      pointer-events: none;
+    }
+
+    .module-number {
+      font-family: var(--serif);
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      color: rgba(61,53,48,0.45);
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .module-card.m3 .module-number { color: rgba(255,255,255,0.6); }
+    .module-card.m4 .module-number { color: rgba(61,53,48,0.5); }
+
+    .module-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .module-title {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 0.8rem;
+    }
+
+    .module-card.m3 .module-title { color: var(--white); }
+
+    .module-desc {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      color: var(--ink);
+      opacity: 0.65;
+      line-height: 1.7;
+    }
+
+    .module-card.m3 .module-desc { color: rgba(255,255,255,0.85); opacity: 1; }
+
+    .module-topics {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .topic-pill {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.7rem;
+      border-radius: 2rem;
+      background: rgba(255,255,255,0.4);
+      color: var(--ink);
+    }
+
+    .module-card.m3 .topic-pill {
+      background: rgba(255,255,255,0.25);
+      color: var(--white);
+    }
+
+    .module-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1.5rem;
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.5;
+    }
+
+    .module-card.m3 .module-arrow { color: var(--white); opacity: 0.8; }
+
+    /* ── DETALLE LACTANCIA ── */
+    .lactancia-detail {
+      margin-top: 5.5rem;
+      padding-top: 5.5rem;
+      border-top: 1px solid rgba(121,166,163,0.28);
+      scroll-margin-top: 5rem;
+    }
+
+    .lactancia-header {
+      max-width: 760px;
+      margin-bottom: 3.5rem;
+    }
+
+    .lactancia-kicker {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.8rem;
+    }
+
+    .lactancia-title {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 4.4rem);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--ink);
+      margin-bottom: 1.2rem;
+    }
+
+    .lactancia-title em {
+      color: var(--terracotta);
+      font-style: italic;
+    }
+
+    .lactancia-lead {
+      font-family: var(--sans);
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 680px;
+    }
+
+    .lactancia-poster-stage {
+      background: var(--cream);
+      padding: 3rem;
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid rgba(238,193,164,0.55);
+      border-bottom: 1px solid rgba(238,193,164,0.55);
+    }
+
+    .lactancia-poster {
+      display: block;
+      width: min(100%, 480px);
+      height: auto;
+      box-shadow: 0 18px 50px rgba(61,53,48,0.13);
+    }
+
+    .lactancia-index {
+      margin: 4.5rem 0 1rem;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid rgba(121,166,163,0.3);
+    }
+
+    .lactancia-index li {
+      border-bottom: 1px solid rgba(121,166,163,0.3);
+    }
+
+    .lactancia-index li:nth-child(odd) {
+      border-right: 1px solid rgba(121,166,163,0.3);
+    }
+
+    .lactancia-index a {
+      min-height: 72px;
+      padding: 1rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      color: var(--ink);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .lactancia-index a:hover {
+      background: rgba(199,215,202,0.32);
+      color: var(--teal);
+    }
+
+    .lactancia-index-number {
+      flex: 0 0 auto;
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .lactancia-index-label {
+      font-family: var(--sans);
+      font-size: 0.74rem;
+      font-weight: 500;
+      line-height: 1.45;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .lactancia-section {
+      display: grid;
+      grid-template-columns: minmax(170px, 230px) minmax(0, 1fr);
+      gap: 3.5rem;
+      padding: 5rem 0;
+      border-top: 1px solid rgba(238,193,164,0.62);
+      scroll-margin-top: 6rem;
+    }
+
+    .lactancia-section-heading {
+      align-self: start;
+      position: sticky;
+      top: 6.5rem;
+    }
+
+    .lactancia-section-number {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.65rem;
+    }
+
+    .lactancia-section-heading h3 {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+      font-weight: 400;
+      line-height: 1.05;
+      color: var(--ink);
+    }
+
+    .lactancia-copy {
+      min-width: 0;
+      max-width: 780px;
+      font-family: var(--sans);
+      font-size: 0.94rem;
+      color: var(--ink);
+      line-height: 1.85;
+    }
+
+    .lactancia-copy h4 {
+      font-family: var(--serif);
+      font-size: 1.75rem;
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--teal);
+      margin: 2.8rem 0 0.8rem;
+    }
+
+    .lactancia-copy h4:first-child { margin-top: 0; }
+
+    .lactancia-copy h5 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      line-height: 1.25;
+      color: var(--terracotta);
+      margin: 1.9rem 0 0.55rem;
+    }
+
+    .lactancia-copy p { margin-bottom: 1rem; }
+
+    .lactancia-copy ul,
+    .lactancia-copy ol {
+      margin: 0.75rem 0 1.2rem;
+      padding-left: 1.35rem;
+    }
+
+    .lactancia-copy li { margin-bottom: 0.42rem; }
+
+    .lactancia-copy blockquote {
+      margin: 1.25rem 0 1.6rem;
+      padding: 0.2rem 0 0.2rem 1.35rem;
+      border-left: 3px solid var(--peach);
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .lactancia-note {
+      margin: 1.4rem 0;
+      padding: 1.2rem 1.4rem;
+      border-left: 4px solid var(--teal);
+      background: rgba(199,215,202,0.25);
+    }
+
+    .lactancia-note.warning {
+      border-left-color: var(--terracotta);
+      background: rgba(238,193,164,0.2);
+    }
+
+    .lactancia-note strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
+    }
+
+    .lactancia-note p:last-child,
+    .lactancia-note ul:last-child { margin-bottom: 0; }
+
+    .lactancia-table-wrap {
+      overflow-x: auto;
+      margin: 1.25rem 0 0.6rem;
+    }
+
+    .lactancia-table {
+      width: 100%;
+      min-width: 590px;
+      border-collapse: collapse;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .lactancia-table th,
+    .lactancia-table td {
+      padding: 0.85rem 0.9rem;
+      border: 1px solid rgba(61,53,48,0.18);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .lactancia-table th {
+      background: var(--teal);
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .lactancia-table tr:nth-child(even) td {
+      background: rgba(199,215,202,0.2);
+    }
+
+    .lactancia-table-source {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .lactancia-sources {
+      margin-top: 2.6rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(121,166,163,0.24);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .lactancia-sources h4 {
+      margin-top: 0;
+      font-size: 1.35rem;
+      color: var(--ink);
+    }
+
+    .lactancia-sources a {
+      color: var(--teal);
+      overflow-wrap: anywhere;
+    }
+
+    .myth-list {
+      margin-top: 0.5rem;
+    }
+
+    .myth-pair {
+      padding: 1.4rem 0;
+      border-bottom: 1px solid rgba(238,193,164,0.55);
+    }
+
+    .myth-pair:last-child { border-bottom: 0; }
+
+    .myth {
+      color: var(--terracotta);
+      font-weight: 500;
+      margin-bottom: 0.25rem !important;
+    }
+
+    .fact {
+      color: var(--ink);
+      margin-bottom: 0 !important;
+    }
+
+    /* ── EQUIPO ── */
+    .team-bg { background: var(--cream); }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    .member-card {
+      background: var(--white);
+      border-radius: 4px;
+      padding: 1.2rem 1.2rem 1.8rem;
+      box-shadow: 0 4px 22px rgba(61,53,48,0.07);
+      transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.3s;
+      text-align: center;
+    }
+
+    .member-card:nth-child(1) { transform: rotate(-1.2deg); }
+    .member-card:nth-child(2) { transform: rotate(0.7deg); margin-top: -12px; }
+    .member-card:nth-child(3) { transform: rotate(-0.5deg); }
+
+    .member-card:hover {
+      transform: rotate(0deg) translateY(-6px) !important;
+      box-shadow: 0 16px 40px rgba(61,53,48,0.12);
+    }
+
+    .member-photo {
+      width: 100%;
+      aspect-ratio: 1/1;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      font-size: 2.5rem;
+    }
+
+    img.member-photo {
+      display: block;
+      object-fit: cover;
+      object-position: center 28%;
+    }
+
+    .member-card:nth-child(1) .member-photo { background: var(--peach); }
+    .member-card:nth-child(2) .member-photo { background: var(--sage); }
+    .member-card:nth-child(3) .member-photo { background: #f5ddd0; }
+
+    .member-role {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.35rem;
+    }
+
+    .member-name {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+
+    .member-bio {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── QR BANNER ── */
+    .qr-banner {
+      background: var(--teal);
+      padding: 5rem 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+
+    .qr-text { color: var(--white); }
+
+    .qr-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 0.8rem;
+    }
+
+    .qr-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .qr-title em { font-style: italic; }
+
+    .qr-desc {
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      opacity: 0.8;
+      max-width: 420px;
+      line-height: 1.75;
+    }
+
+    .qr-box {
+      flex-shrink: 0;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .qr-placeholder {
+      width: 140px; height: 140px;
+      background: var(--cream);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Simple QR pattern */
+    .qr-placeholder svg { width: 100px; height: 100px; opacity: 0.5; }
+
+    .qr-caption {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2.5rem 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(238,193,164,0.45);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--ink);
+    }
+
+    .footer-logo em { color: var(--terracotta); font-style: italic; }
+
+    .footer-inst {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .footer-right {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-align: right;
+      line-height: 1.6;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .site-nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; gap: 3rem; }
+      .hero-visual { display: none; }
+      .section-wrap { padding: 4rem 1.5rem; }
+      .modules-grid { grid-template-columns: 1fr; }
+      .lactancia-detail { margin-top: 4rem; padding-top: 4rem; }
+      .lactancia-poster-stage { padding: 1.5rem; }
+      .lactancia-index { grid-template-columns: 1fr; }
+      .lactancia-index li:nth-child(odd) { border-right: 0; }
+      .lactancia-section {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+        padding: 4rem 0;
+      }
+      .lactancia-section-heading { position: static; }
+      .team-grid { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto; }
+      .member-card:nth-child(1),
+      .member-card:nth-child(2),
+      .member-card:nth-child(3) { transform: rotate(0); margin-top: 0; }
+      .qr-banner { flex-direction: column; padding: 4rem 1.5rem; text-align: center; }
+      .qr-desc { margin: 0 auto; }
+      footer { flex-direction: column; text-align: center; }
+      .footer-right { text-align: center; }
+    }
+
+    .lactancia-page {
+      min-height: 100vh;
+      padding-top: 7rem;
+      background: var(--white);
+    }
+
+    .lactancia-page .lactancia-detail {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .module-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 2.2rem;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    .module-back:hover { color: var(--terracotta); }
+
+    .care-page .lactancia-title em { color: var(--teal); }
+
+    .care-overview {
+      margin: 0 0 4.5rem;
+      padding: 2.4rem;
+      background: var(--sage);
+      color: var(--ink);
+      border-radius: 6px;
+    }
+
+    .lactancia-poster-stage + .care-overview { margin-top: 4.5rem; }
+
+    .care-overview h3 {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+
+    .care-overview p {
+      max-width: 760px;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: rgba(61,53,48,0.78);
+    }
+
+    .care-overview-list {
+      margin-top: 1.6rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: 1px solid rgba(61,53,48,0.22);
+      border-left: 1px solid rgba(61,53,48,0.22);
+    }
+
+    .care-overview-list span {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      padding: 0.9rem 1rem;
+      border-right: 1px solid rgba(61,53,48,0.22);
+      border-bottom: 1px solid rgba(61,53,48,0.22);
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .care-page .lactancia-index-number,
+    .care-page .lactancia-section-number,
+    .care-page .lactancia-copy h5 {
+      color: var(--teal);
+    }
+
+    .care-page .lactancia-copy h4 { color: var(--terracotta); }
+
+    .care-steps {
+      margin: 1.4rem 0 1.8rem;
+      counter-reset: care-step;
+      list-style: none;
+      padding: 0 !important;
+      border-top: 1px solid rgba(121,166,163,0.32);
+    }
+
+    .care-steps li {
+      counter-increment: care-step;
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 0.9rem;
+      align-items: start;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(121,166,163,0.32);
+    }
+
+    .care-steps li::before {
+      content: counter(care-step, decimal-leading-zero);
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--teal);
+    }
+
+    .care-alert {
+      margin: 1.5rem 0;
+      padding: 1.25rem 1.4rem;
+      border-left: 4px solid var(--terracotta);
+      background: rgba(238,193,164,0.2);
+    }
+
+    .care-alert strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+    }
+
+    .care-alert p:last-child,
+    .care-alert ul:last-child { margin-bottom: 0; }
+
+    .lochia-timeline {
+      margin: 1.4rem 0 1.8rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid rgba(121,166,163,0.35);
+      border-left: 1px solid rgba(121,166,163,0.35);
+    }
+
+    .lochia-stage {
+      padding: 1.25rem;
+      border-right: 1px solid rgba(121,166,163,0.35);
+      border-bottom: 1px solid rgba(121,166,163,0.35);
+    }
+
+    .lochia-stage span {
+      display: block;
+      margin-bottom: 0.45rem;
+      font-family: var(--sans);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .lochia-stage h5 { margin-top: 0; }
+    .lochia-stage p:last-child { margin-bottom: 0; }
+
+    .care-types {
+      margin: 1.2rem 0 1.8rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid rgba(121,166,163,0.35);
+      border-left: 1px solid rgba(121,166,163,0.35);
+    }
+
+    .care-type {
+      padding: 1.3rem;
+      border-right: 1px solid rgba(121,166,163,0.35);
+      border-bottom: 1px solid rgba(121,166,163,0.35);
+    }
+
+    .care-type h5 { margin-top: 0; }
+    .care-type p:last-child { margin-bottom: 0; }
+
+    .related-module {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 0.5rem;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    .related-module:hover { color: var(--terracotta); }
+
+    /* ── LEGIBILIDAD ── */
+    body { font-weight: 400; }
+    .nav-links a { font-size: 0.8rem; }
+    .lactancia-kicker { font-size: 0.74rem; }
+    .lactancia-lead { font-size: 1.12rem; }
+    .lactancia-index-label { font-size: 0.82rem; }
+    .lactancia-section-number { font-size: 0.72rem; }
+    .lactancia-copy { font-size: 1.08rem; }
+    .lactancia-copy h4 { font-size: 1.9rem; }
+    .lactancia-copy h5 { font-size: 1.42rem; }
+    .lactancia-copy blockquote { font-size: 1.32rem; }
+    .lactancia-table { font-size: 0.94rem; }
+    .lactancia-table-source { font-size: 0.82rem; }
+    .lactancia-sources { font-size: 0.9rem; }
+    .care-overview p { font-size: 1.08rem; }
+    .care-overview-list span { font-size: 0.78rem; }
+    .related-module,
+    .module-back { font-size: 0.78rem; }
+    .footer-right { font-size: 0.82rem; }
+
+    @media (max-width: 900px) {
+      .care-overview { padding: 1.5rem; }
+      .care-overview-list,
+      .lochia-timeline,
+      .care-types { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="nav-logo" href="index.html">
+      <span class="nav-logo-main">Puerperio <em>Saludable</em></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#modulos">Módulos</a></li>
+      <li><a href="index.html#equipo">Equipo</a></li>
+    </ul>
+  </nav>
+
+  <main class="lactancia-page care-page">
+    <div class="section-wrap">
+      <a class="module-back" href="index.html#modulos">← Volver a módulos</a>
+
+      <article class="lactancia-detail" id="higiene-cuidados-detalle">
+        <header class="lactancia-header">
+          <p class="lactancia-kicker">Módulo 02 · Recuperación diaria</p>
+          <h1 class="lactancia-title">Higiene y <em>cuidados</em></h1>
+          <p class="lactancia-lead">
+            Recomendaciones para cuidar la zona genital, observar los loquios y favorecer la
+            recuperación de la episiotomía o la herida de cesárea.
+          </p>
+        </header>
+
+        <div class="lactancia-poster-stage">
+          <img
+            class="lactancia-poster"
+            src="assets/afiches/Higiene posparto.png"
+            alt="Afiche de higiene genital en el posparto con indicaciones sobre aseo, frecuencia, secado y productos que deben evitarse"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="care-overview">
+          <h3>Cuidados simples para una recuperación segura</h3>
+          <p>
+            Mantener la zona limpia y seca, cambiar frecuentemente el apósito y observar la
+            evolución de las heridas ayuda a prevenir infecciones y detectar cambios a tiempo.
+          </p>
+          <div class="care-overview-list" aria-label="Resumen de higiene y cuidados">
+            <span>Higiene perineal</span>
+            <span>Observación de loquios</span>
+            <span>Cuidado de episiotomía</span>
+            <span>Cuidado de cesárea</span>
+          </div>
+        </div>
+
+        <nav aria-label="Contenido del módulo de higiene y cuidados">
+          <ol class="lactancia-index">
+            <li>
+              <a href="#higiene-perineal">
+                <span class="lactancia-index-number">01</span>
+                <span class="lactancia-index-label">Higiene perineal</span>
+              </a>
+            </li>
+            <li>
+              <a href="#loquios">
+                <span class="lactancia-index-number">02</span>
+                <span class="lactancia-index-label">Loquios</span>
+              </a>
+            </li>
+            <li>
+              <a href="#episiotomia">
+                <span class="lactancia-index-number">03</span>
+                <span class="lactancia-index-label">Cuidados de la episiotomía</span>
+              </a>
+            </li>
+            <li>
+              <a href="#herida-cesarea">
+                <span class="lactancia-index-number">04</span>
+                <span class="lactancia-index-label">Herida operatoria o cesárea</span>
+              </a>
+            </li>
+          </ol>
+        </nav>
+
+        <section class="lactancia-section" id="higiene-perineal">
+          <div class="lactancia-section-heading">
+            <span class="lactancia-section-number">Apartado 01</span>
+            <h3>Higiene perineal</h3>
+          </div>
+          <div class="lactancia-copy">
+            <h4>¿Cuál es el objetivo de la higiene genital?</h4>
+            <p>
+              La higiene genital o perineal durante el puerperio busca prevenir infecciones del
+              tracto genital, especialmente si durante el parto hubo puntos por episiotomía o
+              desgarros.
+            </p>
+
+            <h4>¿Cómo se realiza?</h4>
+            <ol class="care-steps">
+              <li>
+                Siéntate en el WC y deja correr agua limpia sobre los genitales, sin realizar
+                baños de inmersión.
+              </li>
+              <li>
+                Deja que el agua escurra desde adelante hacia atrás para evitar contaminar la
+                zona genital con bacterias de la región anal.
+              </li>
+              <li>
+                Realiza el aseo al levantarte y después de ir al baño. Chile Crece Contigo
+                recomienda hacerlo al menos cinco veces al día mientras persista el sangrado.
+              </li>
+              <li>
+                Seca con una toalla suave desechable, mediante toques delicados y sin frotar,
+                procurando que la zona quede completamente seca.
+              </li>
+              <li>
+                Cambia con frecuencia el apósito o toalla higiénica. No utilices tampones durante
+                el puerperio.
+              </li>
+            </ol>
+
+            <div class="lactancia-note">
+              <strong>Productos de higiene</strong>
+              <p>
+                El agua corriente es suficiente según Chile Crece Contigo. Evita antisépticos,
+                duchas vaginales y productos perfumados o irritantes. Si tu equipo de salud te
+                indicó un producto específico, sigue esa recomendación.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="lactancia-section" id="loquios">
+          <div class="lactancia-section-heading">
+            <span class="lactancia-section-number">Apartado 02</span>
+            <h3>Loquios</h3>
+          </div>
+          <div class="lactancia-copy">
+            <h4>¿Qué son?</h4>
+            <p>
+              Son secreciones sanguinolentas eliminadas a través de los genitales después del
+              parto. Su cantidad puede variar, pero no deberían tener mal olor y deben disminuir
+              progresivamente.
+            </p>
+
+            <div class="lochia-timeline">
+              <div class="lochia-stage">
+                <span>Primeras 48 horas</span>
+                <h5>Más sanguinolentos</h5>
+                <p>Pueden parecerse a una menstruación o ser algo más abundantes.</p>
+              </div>
+              <div class="lochia-stage">
+                <span>Día 3 al 5</span>
+                <h5>Más rosados</h5>
+                <p>La cantidad comienza a disminuir y el color se vuelve más claro.</p>
+              </div>
+              <div class="lochia-stage">
+                <span>Desde la primera semana</span>
+                <h5>Amarillentos o blanquecinos</h5>
+                <p>El flujo continúa disminuyendo durante la recuperación.</p>
+              </div>
+            </div>
+
+            <h4>¿Hasta cuándo deberían durar?</h4>
+            <p>
+              Pueden mantenerse alrededor de 20 días después del parto. Lo importante es que, con
+              el paso de los días, la cantidad vaya siempre en disminución.
+            </p>
+
+            <div class="care-alert">
+              <strong>¿Cuándo consultar?</strong>
+              <p>
+                Consulta si los loquios no disminuyen, tienen mal olor o se ven achocolatados,
+                turbios o con pus. Si además presentas fiebre de 38 °C o más, acude a un servicio
+                de urgencia.
+              </p>
+              <a class="related-module" href="signos-alarma.html">Revisar Signos de Alarma →</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="lactancia-section" id="episiotomia">
+          <div class="lactancia-section-heading">
+            <span class="lactancia-section-number">Apartado 03</span>
+            <h3>Cuidados de la episiotomía</h3>
+          </div>
+          <div class="lactancia-copy">
+            <h4>¿Qué es la episiotomía?</h4>
+            <p>
+              Es una incisión quirúrgica realizada en el periné y la pared vaginal para ampliar
+              la abertura durante el nacimiento. No se recomienda como procedimiento rutinario:
+              se reserva para situaciones clínicas específicas y debe ser explicada a la mujer.
+            </p>
+
+            <h4>¿Qué tipos existen?</h4>
+            <div class="care-types">
+              <div class="care-type">
+                <h5>Episiotomía mediana</h5>
+                <p>
+                  Incisión recta y vertical que se realiza desde la vagina en dirección hacia el
+                  ano durante la etapa final del parto.
+                </p>
+              </div>
+              <div class="care-type">
+                <h5>Episiotomía mediolateral</h5>
+                <p>
+                  Corte realizado en un ángulo aproximado de 45° a 60° hacia el lado derecho o
+                  izquierdo del periné.
+                </p>
+              </div>
+            </div>
+
+            <h4>Cuidados diarios</h4>
+            <ul>
+              <li>Realiza el aseo perineal con agua corriente, desde adelante hacia atrás.</li>
+              <li>Mantén la zona limpia y completamente seca.</li>
+              <li>Cambia frecuentemente el apósito o toalla higiénica.</li>
+              <li>No apliques antisépticos, cremas ni productos irritantes salvo indicación profesional.</li>
+              <li>Sigue las indicaciones entregadas por tu médico o matrona.</li>
+            </ul>
+
+            <div class="care-alert">
+              <strong>¿Cuándo consultar?</strong>
+              <p>
+                Consulta de inmediato si presentas sangrado abundante, mal olor, pus, aumento del
+                dolor, enrojecimiento, inflamación, apertura de la herida, fiebre o malestar
+                general.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="lactancia-section" id="herida-cesarea">
+          <div class="lactancia-section-heading">
+            <span class="lactancia-section-number">Apartado 04</span>
+            <h3>Cuidados de la herida operatoria o cesárea</h3>
+          </div>
+          <div class="lactancia-copy">
+            <h4>¿Qué cuidados debo tener?</h4>
+            <ul>
+              <li>No manipules la herida para reducir el riesgo de infección.</li>
+              <li>Mantén la herida limpia y seca.</li>
+              <li>
+                La herida puede mojarse durante la ducha cuando ya puedes deambular; después
+                sécala mediante toques suaves, sin frotar.
+              </li>
+              <li>
+                No apliques antisépticos, cremas u otros productos salvo que tu equipo de salud lo
+                haya indicado.
+              </li>
+              <li>
+                Sigue las indicaciones de alta sobre cuándo retirar o cambiar el apósito y sobre
+                el retiro de puntos o grapas, si corresponde.
+              </li>
+              <li>Evita esfuerzos físicos intensos y levantar peso excesivo durante la recuperación.</li>
+              <li>Asiste al control de la herida en la fecha indicada.</li>
+            </ul>
+
+            <div class="care-alert">
+              <strong>¿Cuándo consultar?</strong>
+              <p>
+                Consulta si aparece enrojecimiento o inflamación localizada, pus, secreción de mal
+                olor, apertura de la herida o dolor que comienza a aumentar, ya que pueden ser
+                signos tempranos de infección.
+              </p>
+              <a class="related-module" href="signos-alarma.html">Revisar Signos de Alarma →</a>
+            </div>
+
+            <div class="lactancia-sources">
+              <h4>Fuentes utilizadas</h4>
+              <ul>
+                <li>
+                  <a href="https://www.crececontigo.gob.cl/wp-content/uploads/2025/10/G-Gestacion-y-nacimiento-ChCC_2025.pdf" target="_blank" rel="noopener noreferrer">
+                    Chile Crece Contigo: Guía de la gestación y el nacimiento
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.crececontigo.gob.cl/wp-content/uploads/2016/04/Rotafolio-educativo-para-el-puerperio-y-la-crianza-temprana-ChCC-y-PSM-3.pdf" target="_blank" rel="noopener noreferrer">
+                    Chile Crece Contigo: Rotafolio educativo para el puerperio y la crianza temprana
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.minsal.cl/wp-content/uploads/2015/10/NORMA-TECNICA-PARA-LA-ATENCION-INTEGRAL-EN-EL-PUERPERIO_web.-08.10.2015-R.pdf" target="_blank" rel="noopener noreferrer">
+                    MINSAL: Norma técnica para la atención integral en el puerperio
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.clinicaalemana.cl/especialidades/maternidad-y-familia/cuidados-de-la-madre-despues-del-alta" target="_blank" rel="noopener noreferrer">
+                    Clínica Alemana: Cuidados de la madre después del alta
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.who.int/publications/i/item/9789241550215" target="_blank" rel="noopener noreferrer">
+                    Organización Mundial de la Salud: recomendaciones para una experiencia positiva del parto
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-left">
+      <span class="footer-logo">Puerperio <em>Saludable</em></span>
+      <span class="footer-inst">2026</span>
+    </div>
+    <div class="footer-right">
+      Proyecto Educativo — Clínica Obstétrica<br/>
+      Catalina Kunstmann · Martina Barrientos · Trinidad Hurtado
+    </div>
+  </footer>
+</body>
+</html>
